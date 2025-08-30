@@ -1,0 +1,14 @@
+{
+	"$schema": "https://jsr.io/schema/config-file.v1.json",
+	"name": "@vanyauhalin/result",
+	"version": "0.0.0",
+	"license": "MIT",
+	"exports": {
+		"./package.json": "./package.json",
+		".": "./lib/main.ts"
+	},
+	"publish": {
+		"include": ["lib", "LICENSE", "package.json", "README.md"],
+		"exclude": ["lib/**/*.test.ts"]
+	}
+}
