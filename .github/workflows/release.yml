@@ -47,7 +47,7 @@ jobs:
     - name: Build package.json
       run: pnpm build-package-json
 
-    - name: Build package
+    - name: Archive package
       run: pnpm pack
 
     - name: Upload package
