@@ -9,7 +9,7 @@ on:
     - main
 
 jobs:
-  audit:
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -27,11 +27,61 @@ jobs:
     - name: Build types
       run: pnpm build-types
 
-    - name: Lint package
-      run: pnpm lint
+    - name: Build compat
+      run: pnpm build-compat
+
+    - name: Build package.json
+      run: pnpm build-package-json
+
+    - name: Archive compat
+      run: tar --create --gzip --directory e2e --file compat.tgz compat
+
+    - name: Upload compat
+      uses: actions/upload-artifact@v4
+      with:
+        name: compat
+        path: compat.tgz
+        if-no-files-found: error
+
+  validate:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup mise
+      uses: jdx/mise-action@v2
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
 
     - name: Check package
       run: pnpm check
+
+    - name: Lint package
+      run: pnpm lint
+
+    - name: Test package
+      run: pnpm test
+
+  compat:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download compat
+      uses: actions/download-artifact@v4
+      with:
+        name: compat
+
+    - name: Extract compat
+      run: tar --extract --file *.tgz --strip-components 1
+
+    - name: Setup mise
+      uses: jdx/mise-action@v2
+
+    - name: Install dependencies
+      run: pnpm install --no-lockfile
 
     - name: Test package
       run: pnpm test

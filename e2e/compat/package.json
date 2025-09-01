@@ -1,0 +1,10 @@
+{
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "tsc --project tsconfig.test.json --showConfig | node scripts/test.js"
+	},
+	"devDependencies": {
+		"typescript": "5.9.2"
+	}
+}

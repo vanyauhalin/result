@@ -1,6 +1,6 @@
 import assert from "node:assert/strict"
-import test from "node:test"
 import * as result from "./main.ts"
+import test from "./test.ts"
 
 void test("ok", (t) => {
 	void t.test("creates with a non-void value", () => {

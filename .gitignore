@@ -1,4 +1,7 @@
 dist
+e2e/compat/lib
+e2e/compat/scripts
+e2e/compat/pnpm-lock.yaml
 node_modules
 tmp
 *.tgz

@@ -30,6 +30,7 @@
 		"dist"
 	],
 	"scripts": {
+		"build-compat": "tsc --project tsconfig.build-compat.json",
 		"build-main": "tsc --project tsconfig.build-main.json --showConfig | node scripts/build-main.ts",
 		"build-package-json": "clear-package-json package.json --output package.json",
 		"build-types": "tsc --project tsconfig.build-types.json && api-extractor run",
