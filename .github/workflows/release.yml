@@ -60,6 +60,8 @@ jobs:
   npm:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     env:
       NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
     steps:
@@ -86,6 +88,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions:
+      id-token: write
       packages: write
     env:
       NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -121,6 +124,9 @@ jobs:
 
     - name: Setup mise
       uses: jdx/mise-action@v2
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
 
     - name: Build package.json
       run: pnpm build-package-json
