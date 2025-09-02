@@ -135,7 +135,7 @@ jobs:
       run: deno publish --allow-dirty
 
   gr:
-    needs: [npm, gpr, jsr]
+    needs: [build, npm, gpr, jsr]
     runs-on: ubuntu-latest
     permissions:
       contents: write
