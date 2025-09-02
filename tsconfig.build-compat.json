@@ -2,7 +2,7 @@
 	"extends": "./tsconfig.json",
 	"compilerOptions": {
 		"noEmit": false,
-		"outDir": "e2e/compat"
+		"outDir": "test/compat"
 	},
 	"include": ["lib", "scripts/test.ts"]
 }

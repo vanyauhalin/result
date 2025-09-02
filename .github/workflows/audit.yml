@@ -34,7 +34,7 @@ jobs:
       run: pnpm build-package-json
 
     - name: Archive compat
-      run: tar --create --gzip --directory e2e --file compat.tgz compat
+      run: tar --create --gzip --directory test --file compat.tgz compat
 
     - name: Upload compat
       uses: actions/upload-artifact@v4
