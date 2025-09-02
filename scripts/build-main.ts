@@ -1,6 +1,6 @@
 import * as esbuild from "esbuild"
+import * as tsconfig from "../data/tsconfig.json.ts"
 import pack from "../package.json" with {type: "json"}
-import * as tsconfig from "./tsconfig.ts"
 
 async function main(): Promise<void> {
 	let c = await tsconfig.load(process)

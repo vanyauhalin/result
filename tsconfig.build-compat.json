@@ -4,5 +4,5 @@
 		"noEmit": false,
 		"outDir": "e2e/compat"
 	},
-	"include": ["lib", "scripts/test.ts", "scripts/tsconfig.ts"]
+	"include": ["lib", "scripts/test.ts"]
 }

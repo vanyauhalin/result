@@ -1,5 +1,5 @@
 import path from "node:path"
-import * as tsconfig from "./tsconfig.ts"
+import * as tsconfig from "../data/tsconfig.json.ts"
 
 async function main(): Promise<void> {
 	let d = process.cwd()

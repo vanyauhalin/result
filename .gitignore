@@ -1,4 +1,5 @@
 dist
+e2e/compat/data
 e2e/compat/lib
 e2e/compat/scripts
 e2e/compat/pnpm-lock.yaml
