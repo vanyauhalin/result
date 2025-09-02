@@ -379,5 +379,5 @@ This package is ESM only. The minimum supported Node.js version is 16.
 [ESLint plugin]: https://github.com/vanyauhalin/eslint-plugin-result/
 [NeverThrow]: https://github.com/supermacro/neverthrow/
 
-[MIT]: https://github.com/vanyauhalin/moondusttheme/blob/main/LICENSE
+[MIT]: https://github.com/vanyauhalin/result/blob/v0.1.0/LICENSE
 [Ivan Uhalin]: https://github.com/vanyauhalin/
