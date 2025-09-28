@@ -1,3 +1,5 @@
+![](cover)
+
 # result
 
 Safe error handling without exceptions for JavaScript, inspired by
@@ -369,7 +371,8 @@ This package is ESM only. The minimum supported Node.js version is 16.
 
 ## License
 
-[MIT] © [Ivan Uhalin]
+Code: [MIT] © [Ivan Uhalin]\
+Illustrations: [CC BY-NC-SA 4.0] © [Ivan Uhalin]
 
 <!-- Definitions -->
 
@@ -379,5 +382,7 @@ This package is ESM only. The minimum supported Node.js version is 16.
 [ESLint plugin]: https://github.com/vanyauhalin/eslint-plugin-result/
 [NeverThrow]: https://github.com/supermacro/neverthrow/
 
-[MIT]: https://github.com/vanyauhalin/result/blob/v0.1.0/LICENSE
+[cover]: https://raw.githubusercontent.com/vanyauhalin/result/refs/heads/main/cover.png
+[MIT]: https://github.com/vanyauhalin/result/blob/main/LICENSE-MIT
+[CC BY-NC-SA 4.0]: https://github.com/vanyauhalin/result/blob/main/LICENSE-CC-BY-NC-SA-4.0
 [Ivan Uhalin]: https://github.com/vanyauhalin/
