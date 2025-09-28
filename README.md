@@ -7,23 +7,23 @@ Safe error handling without exceptions for JavaScript, inspired by
 
 - [Why?](#why)
 - [Installation](#installation)
-	- [npm](#npm)
-	- [GitHub Packages](#github-packages)
-	- [JSR (JavaScript Registry)](#jsr-javascript-registry)
-	- [GitHub Releases](#github-releases)
+  - [npm](#npm)
+  - [GitHub Packages](#github-packages)
+  - [JSR (JavaScript Registry)](#jsr-javascript-registry)
+  - [GitHub Releases](#github-releases)
 - [Usage](#usage)
 - [API](#api)
-	- [`Result`](#result-1	)
-	- [`Ok`](#ok)
-	- [`Err`](#err)
-	- [`ok(value)`](#okvalue)
-	- [`err(error)`](#errerror)
-	- [`must(result)`](#mustresult)
-	- [`safeNew(constructor, ...args)`](#safenewconstructor-args)
-	- [`safeSync(fn, ...args)`](#safesyncfn-args)
-	- [`safeAsync(fn, ...args)`](#safeasyncfn-args)
-	- [`NonError`](#nonerror)
-	- [`NonErrorOptions`](#nonerroroptions)
+  - [`Result`](#result-1  )
+  - [`Ok`](#ok)
+  - [`Err`](#err)
+  - [`ok(value)`](#okvalue)
+  - [`err(error)`](#errerror)
+  - [`must(result)`](#mustresult)
+  - [`safeNew(constructor, ...args)`](#safenewconstructor-args)
+  - [`safeSync(fn, ...args)`](#safesyncfn-args)
+  - [`safeAsync(fn, ...args)`](#safeasyncfn-args)
+  - [`NonError`](#nonerror)
+  - [`NonErrorOptions`](#nonerroroptions)
 - [ESLint plugin](#eslint-plugin)
 - [Compatibility](#compatibility)
 - [License](#license)
@@ -147,9 +147,9 @@ This is a discriminated union of [`Ok<V, E>`](#ok) and [`Err<V, E>`](#err).
 ###### Type parameters
 
 * `V` (default: `unknown`)
-	— type of the success value
+  — type of the success value
 * `E` (default: `Error`)
-	— type of the error, must extend `Error`
+  — type of the error, must extend `Error`
 
 ### `Ok`
 
@@ -158,16 +158,16 @@ Success variant of [`Result`](#result-1) containing a value (TypeScript type).
 ###### Type parameters
 
 * `V`
-	— type of the success value
+  — type of the success value
 * `E`
-	— type of the error, must extend `Error`
+  — type of the error, must extend `Error`
 
 ###### Fields
 
 * `v` (`V`)
-	— the success value
+  — the success value
 * `err` (`undefined`)
-	— always undefined for success results
+  — always undefined for success results
 
 ### `Err`
 
@@ -176,16 +176,16 @@ Error variant of [`Result`](#result-1) containing an error (TypeScript type).
 ###### Type parameters
 
 * `V`
-	— type of the success value
+  — type of the success value
 * `E`
-	— type of the error, must extend `Error`
+  — type of the error, must extend `Error`
 
 ###### Fields
 
 * `v` (`undefined`)
-	— always undefined for error results
+  — always undefined for error results
 * `err` (`E`)
-	 — the error
+  — the error
 
 ### `ok(value)`
 
@@ -194,7 +194,7 @@ Creates a success [`Result`](#result-1) containing the given value.
 ###### Parameters
 
 * `value` (`V`)
-	— value to wrap in a success result
+  — value to wrap in a success result
 
 ###### Returns
 
@@ -207,7 +207,7 @@ Creates an error [`Result`](#result-1) containing the given error.
 ###### Parameters
 
 * `error` (`E extends Error`)
-	— error to wrap in an error result
+  — error to wrap in an error result
 
 ###### Returns
 
@@ -220,7 +220,7 @@ Unwraps a [`Result`](#result-1), throwing the error if it exists.
 ###### Parameters
 
 * `result` ([`Result<V, E>`](#result-1))
-	— the result to unwrap
+  — the result to unwrap
 
 ###### Throws
 
@@ -249,9 +249,9 @@ If the thrown value is not an `Error`, it will be wrapped in a
 ###### Parameters
 
 * `constructor` (`new (...args: A) => R`)
-	— the constructor function to call
+  — the constructor function to call
 * `args` (`...A`)
-	— the arguments to pass to the constructor function
+  — the arguments to pass to the constructor function
 
 ###### Returns
 
@@ -280,9 +280,9 @@ If the thrown value is not an `Error`, it will be wrapped in a
 ###### Parameters
 
 * `fn` (`(...args: A) => R`)
-	— the synchronous function to call
+  — the synchronous function to call
 * `args` (`...A`)
-	— the arguments to pass to the function
+  — the arguments to pass to the function
 
 ###### Returns
 
@@ -310,9 +310,9 @@ If the thrown value is not an `Error`, it will be wrapped in a
 ###### Parameters
 
 * `fn` (`(...args: A) => PromiseLike<R>`)
-	— the asynchronous function to call
+  — the asynchronous function to call
 * `args` (`...A`)
-	— the arguments to pass to the function
+  — the arguments to pass to the function
 
 ###### Returns
 
@@ -338,14 +338,14 @@ Error class representing a non-Error being thrown.
 ###### Fields
 
 * `name` (`"NonError"`)
-	— the error name
+  — the error name
 * `cause` (`unknown`)
-	— the original thrown value that was not an Error
+  — the original thrown value that was not an Error
 
 ###### Constructor
 
 * `options` ([`NonErrorOptions`](#nonerroroptions))
-	— configuration for the NonError
+  — configuration for the NonError
 
 ### `NonErrorOptions`
 
@@ -356,7 +356,7 @@ Extends the standard `ErrorOptions` with an explicit `cause` field.
 ###### Fields
 
 * `cause` (`unknown`)
-	— the original thrown value that was not an Error
+  — the original thrown value that was not an Error
 
 ## ESLint plugin
 
