@@ -8,7 +8,7 @@
 		".": "./lib/main.ts"
 	},
 	"publish": {
-		"include": ["lib", "LICENSE", "package.json", "README.md"],
+		"include": ["lib/", "LICENSE", "package.json", "README.md"],
 		"exclude": ["lib/**/*.test.ts"]
 	}
 }

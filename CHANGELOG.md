@@ -1,7 +1,7 @@
 # Changelog
 
-This document records all notable changes to the project, following the
-[Keep a Changelog] format and adhering to [Semantic Versioning].
+This document records all notable changes to the project, following the [Keep a
+Changelog] format and adhering to [Semantic Versioning].
 
 ## [Unreleased]
 

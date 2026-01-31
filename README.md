@@ -197,7 +197,7 @@ Creates a success [`Result`](#result-1) containing the given value.
 ###### Parameters
 
 * `value` (`V`)
-  — value to wrap in a success result
+  — the value to wrap in a success result
 
 ###### Returns
 

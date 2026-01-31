@@ -9,9 +9,9 @@
 		"try-catch",
 		"type-safe"
 	],
-	"homepage": "https://github.com/vanyauhalin/result",
+	"homepage": "https://github.com/vanyauhalin/result/",
 	"bugs": {
-		"url": "https://github.com/vanyauhalin/result/issues"
+		"url": "https://github.com/vanyauhalin/result/issues/"
 	},
 	"repository": {
 		"type": "git",
@@ -27,7 +27,7 @@
 	"main": "dist/main.js",
 	"types": "dist/main.d.ts",
 	"files": [
-		"dist"
+		"dist/"
 	],
 	"scripts": {
 		"build-compat": "tsc --project tsconfig.build-compat.json",
