@@ -19,7 +19,7 @@ Safe error handling without exceptions for JavaScript, inspired by
   - [`Ok`](#ok)
   - [`Err`](#err)
   - [`ok(value)`](#okvalue)
-  - [`err(error)`](#errerror)
+  - [`err(value, error)`](#errvalue-error)
   - [`must(result)`](#mustresult)
   - [`safeNew(constructor, ...args)`](#safenewconstructor-args)
   - [`safeSync(fn, ...args)`](#safesyncfn-args)
@@ -133,7 +133,7 @@ void main()
 ## API
 
 This package exports core result types [`Result`](#result-1), [`Ok`](#ok),
-[`Err`](#err), result utilities [`ok`](#okvalue), [`err`](#errerror),
+[`Err`](#err), result utilities [`ok`](#okvalue), [`err`](#errvalue-error),
 [`must`](#mustresult), safe wrapper functions
 [`safeNew`](#safenewconstructor-args), [`safeSync`](#safesyncfn-args),
 [`safeAsync`](#safeasyncfn-args), and exception wrapping
@@ -173,7 +173,8 @@ Success variant of [`Result`](#result-1) containing a value (TypeScript type).
 
 ### `Err`
 
-Error variant of [`Result`](#result-1) containing an error (TypeScript type).
+Error variant of [`Result`](#result-1) containing an error and optionally a
+value (TypeScript type).
 
 ###### Type parameters
 
@@ -184,8 +185,8 @@ Error variant of [`Result`](#result-1) containing an error (TypeScript type).
 
 ###### Fields
 
-* `v` (`undefined`)
-  — always undefined for error results
+* `v` (`V | undefined`)
+  — the optional value
 * `err` (`E`)
   — the error
 
@@ -202,14 +203,17 @@ Creates a success [`Result`](#result-1) containing the given value.
 
 Success result containing the value ([`Ok<V, E>`](#ok)).
 
-### `err(error)`
+### `err(value, error)`
 
-Creates an error [`Result`](#result-1) containing the given error.
+Creates an error [`Result`](#result-1) containing the given error, and
+optionally a value.
 
 ###### Parameters
 
+* `value` (`V`)
+  — the optional value to include with the error
 * `error` (`E extends Error`)
-  — error to wrap in an error result
+  — the error to wrap in an error result
 
 ###### Returns
 
