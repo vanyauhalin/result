@@ -5,6 +5,7 @@ export default [
 	{
 		files: ["**/*.ts"],
 		rules: {
+			"no-restricted-syntax": "off",
 			"unicorn/prefer-top-level-await": "off",
 		},
 	},
