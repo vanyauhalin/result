@@ -4,5 +4,5 @@
 		"noEmit": false,
 		"outDir": "test/compat/"
 	},
-	"include": ["lib/", "scripts/test.ts"]
+	"include": ["lib/"]
 }

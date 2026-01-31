@@ -1,7 +1,5 @@
 dist/
-test/compat/data/
 test/compat/lib/
-test/compat/scripts/
 test/compat/pnpm-lock.yaml
 node_modules/
 tmp/

@@ -31,12 +31,12 @@
 	],
 	"scripts": {
 		"build-compat": "tsc --project tsconfig.build-compat.json",
-		"build-main": "tsc --project tsconfig.build-main.json --showConfig | node scripts/build-main.ts",
+		"build-main": "esbuild --bundle --format=esm --log-level=error --outfile=dist/main.js --platform=neutral --target=esnext lib/main.ts",
 		"build-package-json": "clear-package-json package.json --output package.json",
 		"build-types": "tsc --project tsconfig.build-types.json && api-extractor run",
-		"check": "tsc",
-		"lint": "eslint --no-warn-ignored lib scripts *.*",
-		"test": "tsc --project tsconfig.test.json --showConfig | node scripts/test.ts"
+		"lint-code": "eslint --no-warn-ignored lib *.*",
+		"lint-types": "tsc",
+		"test": "node lib/main.test.ts"
 	},
 	"devDependencies": {
 		"@microsoft/api-extractor": "7.52.11",

@@ -3,18 +3,18 @@ import config from "@vanyauhalin/eslint-config"
 export default [
 	...config,
 	{
+		files: ["**/*.ts"],
+		rules: {
+			"unicorn/prefer-top-level-await": "off",
+		},
+	},
+	{
 		files: ["lib/main.ts"],
 		rules: {
 			"new-cap": "off",
 			"jsdoc/check-tag-names": ["error", {definedTags: ["remarks"]}],
 			"typescript/no-invalid-void-type": "off",
 			"typescript/no-unused-vars": "off",
-		},
-	},
-	{
-		files: ["scripts/*.ts"],
-		rules: {
-			"unicorn/prefer-top-level-await": "off",
 		},
 	},
 	{

@@ -56,11 +56,11 @@ jobs:
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
 
-    - name: Check package
-      run: pnpm check
+    - name: Lint types
+      run: pnpm lint-types
 
-    - name: Lint package
-      run: pnpm lint
+    - name: Lint code
+      run: pnpm lint-code
 
     - name: Test package
       run: pnpm test
