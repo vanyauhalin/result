@@ -9,8 +9,8 @@ Changelog] format and adhering to [Semantic Versioning].
 
 ### Added
 
-- Add `err(value, error)` overload to support including optional values with
-  error results ([dbd7f48]).
+- Add `err(v, err)` overload to support including optional values with error
+  results ([dbd7f48]).
 
 ## [0.1.0] - 2025-09-02
 
