@@ -55,9 +55,9 @@ export function ok<V = unknown, E extends Error = never>(v: V): Ok<V, E> {
  * Creates an error {@link Result} containing the given error, and optionally a
  * value.
  */
-export function err<V = never, E extends Error = never>(v: E, err: void): Err<V, E>
-export function err<V = unknown, E extends Error = never>(v: V, err: E): Err<V, E>
-export function err<V = unknown, E extends Error = never>(v: V | E, err: E | void): Err<V, E> {
+export function err<V = never, E extends Error = Error>(v: E, err: void): Err<V, E>
+export function err<V = unknown, E extends Error = Error>(v: V, err: E): Err<V, E>
+export function err<V = unknown, E extends Error = Error>(v: V | E, err: E | void): Err<V, E> {
 	if (err) {
 		return {v: v as V, err}
 	}
