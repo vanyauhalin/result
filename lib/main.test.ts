@@ -37,6 +37,13 @@ void test("err", (t) => {
 		assert.deepEqual(Object.keys(r), ["v", "err"])
 		assert.deepEqual(r, {v: undefined, err: e})
 	})
+
+	void t.test("creates with a value and an Error", () => {
+		let e = new Error("some")
+		let r = result.err("some", e)
+		assert.deepEqual(Object.keys(r), ["v", "err"])
+		assert.deepEqual(r, {v: "some", err: e})
+	})
 })
 
 void test("must", (t) => {
