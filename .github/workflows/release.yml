@@ -62,8 +62,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
-    env:
-      NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -77,9 +75,7 @@ jobs:
         name: package
 
     - name: Configure registry
-      run: |
-        pnpm config set //registry.npmjs.org/:_authToken "\${NODE_AUTH_TOKEN}"
-        pnpm config set registry https://registry.npmjs.org
+      run: pnpm config set registry https://registry.npmjs.org
 
     - name: Publish package
       run: pnpm publish *.tgz --no-git-checks --provenance --access public
