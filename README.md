@@ -15,13 +15,13 @@ Safe error handling without exceptions for JavaScript, inspired by
   - [GitHub Releases](#github-releases)
 - [Usage](#usage)
 - [API](#api)
-  - [`Result`](#result-1  )
+  - [`Result`](#result-1)
   - [`Ok`](#ok)
   - [`Err`](#err)
-  - [`ok(value)`](#okvalue)
-  - [`err(value, error)`](#errvalue-error)
-  - [`must(result)`](#mustresult)
-  - [`safeNew(constructor, ...args)`](#safenewconstructor-args)
+  - [`ok(v)`](#okv)
+  - [`err(v, err)`](#errv-err)
+  - [`must(r)`](#mustr)
+  - [`safeNew(fn, ...args)`](#safenewfn-args)
   - [`safeSync(fn, ...args)`](#safesyncfn-args)
   - [`safeAsync(fn, ...args)`](#safeasyncfn-args)
   - [`NonError`](#nonerror)
@@ -133,12 +133,11 @@ void main()
 ## API
 
 This package exports core result types [`Result`](#result-1), [`Ok`](#ok),
-[`Err`](#err), result utilities [`ok`](#okvalue), [`err`](#errvalue-error),
-[`must`](#mustresult), safe wrapper functions
-[`safeNew`](#safenewconstructor-args), [`safeSync`](#safesyncfn-args),
-[`safeAsync`](#safeasyncfn-args), and exception wrapping
-[`NonError`](#nonerror), [`NonErrorOptions`](#nonerroroptions) from the main
-module. There is no default export.
+[`Err`](#err), result utilities [`ok`](#okv), [`err`](#errv-err),
+[`must`](#mustresult), safe wrapper functions [`safeNew`](#safenewfn-args),
+[`safeSync`](#safesyncfn-args), [`safeAsync`](#safeasyncfn-args), and exception
+wrapping [`NonError`](#nonerror), [`NonErrorOptions`](#nonerroroptions) from the
+main module. There is no default export.
 
 ### `Result`
 
@@ -190,42 +189,42 @@ value (TypeScript type).
 * `err` (`E`)
   — the error
 
-### `ok(value)`
+### `ok(v)`
 
 Creates a success [`Result`](#result-1) containing the given value.
 
 ###### Parameters
 
-* `value` (`V`)
+* `v` (`V`)
   — the value to wrap in a success result
 
 ###### Returns
 
 Success result containing the value ([`Ok<V, E>`](#ok)).
 
-### `err(value, error)`
+### `err(v, err)`
 
 Creates an error [`Result`](#result-1) containing the given error, and
 optionally a value.
 
 ###### Parameters
 
-* `value` (`V`)
+* `v` (`V`)
   — the optional value to include with the error
-* `error` (`E extends Error`)
+* `err` (`E extends Error`)
   — the error to wrap in an error result
 
 ###### Returns
 
 Error result containing the error ([`Err<V, E>`](#err)).
 
-### `must(result)`
+### `must(r)`
 
 Unwraps a [`Result`](#result-1), throwing the error if it exists.
 
 ###### Parameters
 
-* `result` ([`Result<V, E>`](#result-1))
+* `r` ([`Result<V, E>`](#result-1))
   — the result to unwrap
 
 ###### Throws
@@ -245,7 +244,7 @@ const v = must(r)
 // v is a URL, or error is thrown
 ```
 
-### `safeNew(constructor, ...args)`
+### `safeNew(fn, ...args)`
 
 Safely calls a constructor function, returning a [`Result`](#result-1).
 
@@ -254,7 +253,7 @@ If the thrown value is not an `Error`, it will be wrapped in a
 
 ###### Parameters
 
-* `constructor` (`new (...args: A) => R`)
+* `fn` (`new (...args: A) => R`)
   — the constructor function to call
 * `args` (`...A`)
   — the arguments to pass to the constructor function
@@ -350,7 +349,7 @@ Error class representing a non-Error being thrown.
 
 ###### Constructor
 
-* `options` ([`NonErrorOptions`](#nonerroroptions))
+* `o` ([`NonErrorOptions`](#nonerroroptions))
   — configuration for the NonError
 
 ### `NonErrorOptions`
