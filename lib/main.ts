@@ -38,9 +38,9 @@ export type Result<V = unknown, E extends Error = Error> = Ok<V, E> | Err<V, E>
 export type Ok<V, E extends Error> = {v: V; err: undefined}
 
 /**
- * Error variant of {@link Result} containing an error.
+ * Error variant of {@link Result} containing an error and optionally a value.
  */
-export type Err<V, E extends Error> = {v: undefined; err: E}
+export type Err<V, E extends Error> = {v: V | undefined; err: E}
 
 /**
  * Creates a success {@link Result} containing the given value.
@@ -52,10 +52,16 @@ export function ok<V, E extends Error = never>(v: V): Ok<V, E> {
 }
 
 /**
- * Creates an error {@link Result} containing the given error.
+ * Creates an error {@link Result} containing the given error, and optionally a
+ * value.
  */
-export function err<V = never, E extends Error = never>(err: E): Err<V, E> {
-	return {v: undefined, err}
+export function err<V = never, E extends Error = never>(v: E, err: void): Err<V, E>
+export function err<V, E extends Error = never>(v: V, err: E): Err<V, E>
+export function err<V, E extends Error = never>(v: V | E, err: E | void): Err<V, E> {
+	if (err) {
+		return {v: v as V, err}
+	}
+	return {v: undefined, err: v as E}
 }
 
 /**
