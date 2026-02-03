@@ -69,9 +69,9 @@ export function err<V = unknown, E extends Error = Error>(v: V | E, err: E | voi
  *
  * @example
  * ```
- * const s = "https://example.com"
- * const r = safeNew(URL, s)
- * const v = must(r)
+ * let s = "https://example.com"
+ * let r = safeNew(URL, s)
+ * let v = must(r)
  * // v is a URL, or error is thrown
  * ```
  *
@@ -95,8 +95,8 @@ export function must<V = unknown, E extends Error = Error>(r: Result<V, E>): V {
  *
  * @example
  * ```
- * const s = "https://example.com"
- * const r = safeNew(URL, s)
+ * let s = "https://example.com"
+ * let r = safeNew(URL, s)
  * if (r.err) {
  * 	// r.err is an Error
  * } else {
@@ -134,8 +134,8 @@ export function safeNew<
  *
  * @example
  * ```
- * const s = "{}"
- * const r = safeSync(JSON.parse, s)
+ * let s = "{}"
+ * let r = safeSync(JSON.parse, s)
  * if (r.err) {
  * 	// r.err is an Error
  * } else {
@@ -173,8 +173,8 @@ export function safeSync<
  *
  * @example
  * ```
- * const f = "/tmp/app.log"
- * const r = await result.safeAsync(fs.readFile, f, "utf8")
+ * let f = "/tmp/app.log"
+ * let r = await safeAsync(fs.readFile, f, "utf8")
  * if (r.err) {
  * 	// r.err is an Error
  * } else {

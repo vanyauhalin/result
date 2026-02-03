@@ -84,7 +84,7 @@ npm install vanyauhalin-result-x.x.x.tgz
 ## Usage
 
 ```ts
-import * as result from "@vanyauhalin/result"
+import * as r from "@vanyauhalin/result"
 
 type User = {
 	login: string
@@ -92,27 +92,27 @@ type User = {
 	name: string
 }
 
-async function fetchUser(id: string): Promise<result.Result<User>> {
-	const u = result.safeNew(URL, id, "https://api.github.com/users/")
+async function fetchUser(id: string): Promise<r.Result<User>> {
+	let u = r.safeNew(URL, id, "https://api.github.com/users/")
 	if (u.err) {
-		return result.err(new Error(`Creating a URL for user ${id}`, {cause: u.err}))
+		return r.err(new Error(`Creating a URL for user ${id}`, {cause: u.err}))
 	}
 
-	const r = await result.safeAsync(fetch, u.v)
-	if (r.err) {
-		return result.err(new Error(`Fetching a user with id ${id}`, {cause: r.err}))
+	let f = await r.safeAsync(fetch, u.v)
+	if (f.err) {
+		return r.err(new Error(`Fetching a user with id ${id}`, {cause: f.err}))
 	}
 
-	const o = await result.safeAsync(r.v.json.bind(r.v))
-	if (o.err) {
-		return result.err(new Error(`Getting JSON for user ${id}`, {cause: o.err}))
+	let j = await r.safeAsync(f.v.json.bind(f.v))
+	if (j.err) {
+		return r.err(new Error(`Getting JSON for user ${id}`, {cause: j.err}))
 	}
 
-	return result.ok(o.v as User)
+	return r.ok(j.v as User)
 }
 
 async function main(): Promise<void> {
-	const u = await fetchUser("ry")
+	let u = await fetchUser("ry")
 	if (u.err) {
 		console.error(u.err)
 		return
@@ -238,9 +238,9 @@ The value contained in the result (`V`).
 ###### Example
 
 ```ts
-const s = "https://example.com"
-const r = safeNew(URL, s)
-const v = must(r)
+let s = "https://example.com"
+let r = safeNew(URL, s)
+let v = must(r)
 // v is a URL, or error is thrown
 ```
 
@@ -266,8 +266,8 @@ A result containing the constructed object or an error
 ###### Example
 
 ```ts
-const s = "https://example.com"
-const r = safeNew(URL, s)
+let s = "https://example.com"
+let r = safeNew(URL, s)
 if (r.err) {
 	// r.err is an Error
 } else {
@@ -296,8 +296,8 @@ A result containing the return value or an error ([`Result<R>`](#result-1)).
 ###### Example
 
 ```ts
-const s = "{}"
-const r = safeSync(JSON.parse, s)
+let s = "{}"
+let r = safeSync(JSON.parse, s)
 if (r.err) {
 	// r.err is an Error
 } else {
@@ -327,8 +327,8 @@ Promise that resolves to a result containing the awaited value or an error
 ###### Example
 
 ```ts
-const f = "/tmp/app.log"
-const r = await result.safeAsync(fs.readFile, f, "utf8")
+let f = "/tmp/app.log"
+let r = await safeAsync(fs.readFile, f, "utf8")
 if (r.err) {
 	// r.err is an Error
 } else {
