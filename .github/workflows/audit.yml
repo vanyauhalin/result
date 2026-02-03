@@ -1,5 +1,7 @@
 name: Audit
 
+permissions: {}
+
 on:
   pull_request:
     branches:
@@ -11,6 +13,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -46,6 +50,8 @@ jobs:
   validate:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -68,6 +74,7 @@ jobs:
   compat:
     needs: build
     runs-on: ubuntu-latest
+    permissions: {}
     steps:
     - name: Download compat
       uses: actions/download-artifact@v4

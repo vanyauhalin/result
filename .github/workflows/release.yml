@@ -1,5 +1,7 @@
 name: Release
 
+permissions: {}
+
 on:
   push:
     tags:
@@ -8,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       version: ${{steps.version.outputs.version}}
       anchor: ${{steps.anchor.outputs.anchor}}
