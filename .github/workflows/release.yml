@@ -1,4 +1,4 @@
-name: release
+name: Release
 
 on:
   push:
@@ -147,12 +147,12 @@ jobs:
         pattern: "*"
         merge-multiple: true
 
-    - name: Create Release
+    - name: Create release
       run: |
         v="${{needs.build.outputs.version}}"
         a="${{needs.build.outputs.anchor}}"
         u="${{github.server_url}}/${{github.repository}}/blob/main/CHANGELOG.md#$a"
         gh release create "v$v" --title "v$v" --notes "See $u"
 
-    - name: Upload Package
+    - name: Upload package
       run: gh release upload "v${{needs.build.outputs.version}}" *.tgz
