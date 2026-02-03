@@ -5,7 +5,7 @@ Changelog] format and adhering to [Semantic Versioning].
 
 ## [Unreleased]
 
-There are no noticeable changes in version [unreleased].
+There are no notable changes in this release.
 
 ## [0.2.0] - 2026-01-31
 
