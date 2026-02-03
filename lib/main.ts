@@ -35,12 +35,12 @@ export type Result<V = unknown, E extends Error = Error> = Ok<V, E> | Err<V, E>
 /**
  * Success variant of {@link Result} containing a value.
  */
-export type Ok<V = unknown, E extends Error = never> = {v: V; err: undefined}
+export type Ok<V = unknown, E extends Error = never> = {v: V, err: undefined}
 
 /**
  * Error variant of {@link Result} containing an error and optionally a value.
  */
-export type Err<V = unknown, E extends Error = Error> = {v: V | undefined; err: E}
+export type Err<V = unknown, E extends Error = Error> = {v: V | undefined, err: E}
 
 /**
  * Creates a success {@link Result} containing the given value.
@@ -117,7 +117,7 @@ export function safeNew<
 ): Result<R> {
 	try {
 		return ok(new fn(...args))
-	} catch(err_) {
+	} catch (err_) {
 		if (isError(err_)) {
 			return err(err_)
 		}
@@ -156,7 +156,7 @@ export function safeSync<
 ): Result<R> {
 	try {
 		return ok(fn(...args))
-	} catch(err_) {
+	} catch (err_) {
 		if (isError(err_)) {
 			return err(err_)
 		}
@@ -195,7 +195,7 @@ export async function safeAsync<
 ): Promise<Result<Awaited<R>>> {
 	try {
 		return ok(await Promise.resolve(fn(...args)))
-	} catch(err_) {
+	} catch (err_) {
 		if (isError(err_)) {
 			return err(err_)
 		}

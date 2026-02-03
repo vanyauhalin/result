@@ -7,6 +7,10 @@
 		"outDir": "tmp/dts/",
 		"target": "es2022"
 	},
-	"include": ["lib/**/*.ts"],
-	"exclude": ["lib/**/*.test.ts"]
+	"include": [
+		"lib/**/*.ts"
+	],
+	"exclude": [
+		"lib/**/*.test.ts"
+	]
 }

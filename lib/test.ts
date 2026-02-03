@@ -15,7 +15,7 @@ const test: typeof Test = (() => {
 			try {
 				await (cb as Test.TestFn)({test} as Test.TestContext, () => {})
 				console.log("+", n)
-			} catch(err) {
+			} catch (err) {
 				console.error("-", n)
 				throw err
 			}

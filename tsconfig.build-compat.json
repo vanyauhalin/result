@@ -4,5 +4,7 @@
 		"noEmit": false,
 		"outDir": "test/compat/lib/"
 	},
-	"include": ["lib/"]
+	"include": [
+		"lib/"
+	]
 }

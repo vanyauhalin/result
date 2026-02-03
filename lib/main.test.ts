@@ -59,7 +59,7 @@ void test("must", (t) => {
 		try {
 			must(r)
 			assert.fail("must() did not throw")
-		} catch(err) {
+		} catch (err) {
 			assert.deepEqual(err, e)
 		}
 	})
