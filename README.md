@@ -2,8 +2,8 @@
 
 # result
 
-Safe error handling without exceptions for JavaScript, inspired by
-[Go's error model].
+Safe error handling without exceptions for JavaScript, inspired by [Go's error
+model].
 
 ## Contents
 
