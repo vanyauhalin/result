@@ -34,7 +34,7 @@
 		"build-main": "esbuild --bundle --format=esm --log-level=error --outfile=dist/main.js --platform=neutral --target=esnext lib/main.ts",
 		"build-package-json": "clear-package-json package.json --output package.json",
 		"build-types": "tsc --project tsconfig.build-types.json && api-extractor run",
-		"lint-code": "eslint --no-warn-ignored lib *.*",
+		"lint-code": "eslint --no-warn-ignored --concurrency=auto .github lib test *.*",
 		"lint-types": "tsc",
 		"test": "node lib/main.test.ts"
 	},
