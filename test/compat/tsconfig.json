@@ -14,7 +14,7 @@
 		"verbatimModuleSyntax": true
 	},
 	"include": [
-		"lib/",
-		"*.js"
+		"./lib/",
+		"./*.js"
 	]
 }

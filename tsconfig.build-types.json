@@ -4,13 +4,13 @@
 		"declaration": true,
 		"emitDeclarationOnly": true,
 		"noEmit": false,
-		"outDir": "tmp/dts/",
+		"outDir": "./tmp/dts/",
 		"target": "es2022"
 	},
 	"include": [
-		"lib/**/*.ts"
+		"./lib/**/*.ts"
 	],
 	"exclude": [
-		"lib/**/*.test.ts"
+		"./lib/**/*.test.ts"
 	]
 }

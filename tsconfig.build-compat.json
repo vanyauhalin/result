@@ -2,9 +2,9 @@
 	"extends": "./tsconfig.json",
 	"compilerOptions": {
 		"noEmit": false,
-		"outDir": "test/compat/lib/"
+		"outDir": "./test/compat/lib/"
 	},
 	"include": [
-		"lib/"
+		"./lib/"
 	]
 }

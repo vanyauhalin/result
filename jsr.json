@@ -9,13 +9,13 @@
 	},
 	"publish": {
 		"include": [
-			"lib/",
-			"LICENSE",
-			"package.json",
-			"README.md"
+			"./lib/",
+			"./LICENSE",
+			"./package.json",
+			"./README.md"
 		],
 		"exclude": [
-			"lib/**/*.test.ts"
+			"./lib/**/*.test.ts"
 		]
 	}
 }

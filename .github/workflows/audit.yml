@@ -38,13 +38,13 @@ jobs:
       run: pnpm build-package-json
 
     - name: Archive compat
-      run: tar --create --gzip --directory test --file compat.tgz compat
+      run: tar --create --gzip --directory ./test/ --file ./compat.tgz compat/
 
     - name: Upload compat
       uses: actions/upload-artifact@v4
       with:
         name: compat
-        path: compat.tgz
+        path: ./compat.tgz
         if-no-files-found: error
 
   validate:
@@ -82,7 +82,7 @@ jobs:
         name: compat
 
     - name: Extract compat
-      run: tar --extract --file *.tgz --strip-components 1
+      run: tar --extract --file ./*.tgz --strip-components 1
 
     - name: Setup mise
       uses: jdx/mise-action@v2

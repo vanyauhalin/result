@@ -24,19 +24,19 @@
 		"url": "https://vanyauhalin.me/"
 	},
 	"type": "module",
-	"main": "dist/main.js",
-	"types": "dist/main.d.ts",
+	"main": "./dist/main.js",
+	"types": "./dist/main.d.ts",
 	"files": [
-		"dist/"
+		"./dist/"
 	],
 	"scripts": {
-		"build-compat": "tsc --project tsconfig.build-compat.json",
-		"build-main": "esbuild --bundle --format=esm --log-level=error --outfile=dist/main.js --platform=neutral --target=esnext lib/main.ts",
-		"build-package-json": "clear-package-json package.json --output package.json",
-		"build-types": "tsc --project tsconfig.build-types.json && api-extractor run",
-		"lint-code": "eslint --no-warn-ignored --concurrency=auto .github lib test *.*",
+		"build-compat": "tsc --project ./tsconfig.build-compat.json",
+		"build-main": "esbuild --bundle --format=esm --log-level=error --outfile=./dist/main.js --platform=neutral --target=esnext ./lib/main.ts",
+		"build-package-json": "clear-package-json ./package.json --output ./package.json",
+		"build-types": "tsc --project ./tsconfig.build-types.json && api-extractor run",
+		"lint-code": "eslint --no-warn-ignored --concurrency=auto ./.github/ ./lib/ ./test/ ./*.*",
 		"lint-types": "tsc",
-		"test": "node lib/main.test.ts"
+		"test": "node ./lib/main.test.ts"
 	},
 	"devDependencies": {
 		"@microsoft/api-extractor": "7.52.11",

@@ -24,14 +24,14 @@ jobs:
 
     - name: Store version
       id: version
-      run: echo "version=$(jq --raw-output ".version" package.json)" >> "$GITHUB_OUTPUT"
+      run: echo "version=$(jq --raw-output ".version" ./package.json)" >> "$GITHUB_OUTPUT"
 
     - name: Store anchor
       id: anchor
       run: |
         v="${{steps.version.outputs.version}}"
         r="^## \[$v\] - [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$"
-        h=$(grep "$r" CHANGELOG.md 2>/dev/null)
+        h=$(grep "$r" ./CHANGELOG.md 2>/dev/null)
         if [ -z "$h" ]; then exit 1; fi
         v="${v%.*.*}${v#*.}"
         v="${v%.*}${v##*.}"
@@ -58,7 +58,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: package
-        path: "*.tgz"
+        path: "./*.tgz"
         if-no-files-found: error
 
   npm:
@@ -82,7 +82,7 @@ jobs:
       run: pnpm config set registry https://registry.npmjs.org
 
     - name: Publish package
-      run: pnpm publish *.tgz --no-git-checks --provenance --access public
+      run: pnpm publish ./*.tgz --no-git-checks --provenance --access public
 
   gpr:
     needs: build
@@ -110,7 +110,7 @@ jobs:
         pnpm config set registry https://npm.pkg.github.com
 
     - name: Publish package
-      run: pnpm publish *.tgz --no-git-checks --provenance --access public
+      run: pnpm publish ./*.tgz --no-git-checks --provenance --access public
 
   jsr:
     needs: build
@@ -163,4 +163,4 @@ jobs:
         gh release create "v$v" --title "v$v" --notes "See $u"
 
     - name: Upload package
-      run: gh release upload "v${{needs.build.outputs.version}}" *.tgz
+      run: gh release upload "v${{needs.build.outputs.version}}" ./*.tgz
