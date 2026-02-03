@@ -41,7 +41,7 @@
 	"devDependencies": {
 		"@microsoft/api-extractor": "7.52.11",
 		"@types/node": "24.3.0",
-		"@vanyauhalin/eslint-config": "0.0.10",
+		"@vanyauhalin/eslint-config": "0.0.12",
 		"clean-publish": "5.2.2",
 		"esbuild": "0.25.9",
 		"eslint": "9.39.2",
